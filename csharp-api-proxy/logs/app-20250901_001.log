@@ -1,0 +1,125 @@
+2025-09-01 22:18:44.486 +08:00 [INF] 应用程序启动完成，正在监听请求...
+2025-09-01 22:19:04.921 +08:00 [INF] 检测到搜索需求 [Content: 帮我根据今天上海的天气生成一个天气卡片 上海的天气] [Score: 2]
+2025-09-01 22:19:04.936 +08:00 [INF] 创建聊天会话 [RequestId: dc28a515] [SessionId: 1756736344902-1756736344] [Features: Thinking=true, Search=true]
+2025-09-01 22:19:04.956 +08:00 [INF] 获取新的匿名令牌
+2025-09-01 22:19:07.756 +08:00 [WRN] 获取匿名令牌失败，使用默认令牌
+System.InvalidOperationException: Cache entry must specify a value for Size when SizeLimit is set.
+   at Microsoft.Extensions.Caching.Memory.MemoryCache.SetEntry(CacheEntry entry)
+   at Microsoft.Extensions.Caching.Memory.CacheExtensions.Set[TItem](IMemoryCache cache, Object key, TItem value, TimeSpan absoluteExpirationRelativeToNow)
+   at OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService.GetAuthTokenAsync(CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Services\UpstreamService.cs:line 57
+2025-09-01 22:19:27.387 +08:00 [WRN] One or more of the following response headers have been removed because they are invalid for HTTP/2 and HTTP/3 responses: 'Connection', 'Transfer-Encoding', 'Keep-Alive', 'Upgrade' and 'Proxy-Connection'.
+2025-09-01 22:20:02.233 +08:00 [INF] 流处理完成 [RequestId: dc28a515] [Chunks: 284] [Bytes: 59203]
+2025-09-01 22:20:02.244 +08:00 [WRN] 慢请求警告 [RequestId: 0HNF9CA0PFCVB:00000001] [Duration: 57450.6693ms] [Status: 200]
+2025-09-01 22:20:02.256 +08:00 [INF] [PERF] ChatCompletion 耗时: 57450.6693ms, 详情: { IsStream = True, StatusCode = 200, ContentLength =  }
+[2025-09-01 22:31:24.379 +08:00 INF]  应用程序启动完成，正在监听请求... {"Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:32:05.952 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Application.Handlers.ProcessChatCommandHandler 创建聊天会话 [RequestId: 6c42470d] [SessionId: 1756737125949-1756737125] [Features: Thinking=true, Search=true] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:32:05.980 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService 获取新的匿名令牌 {"RequestId":"0HNF9CH9HMDF4:00000001","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:32:08.973 +08:00 WRN] OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService 获取匿名令牌失败，使用默认令牌 {"RequestId":"0HNF9CH9HMDF4:00000001","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+System.InvalidOperationException: Cache entry must specify a value for Size when SizeLimit is set.
+   at Microsoft.Extensions.Caching.Memory.MemoryCache.SetEntry(CacheEntry entry)
+   at Microsoft.Extensions.Caching.Memory.CacheExtensions.Set[TItem](IMemoryCache cache, Object key, TItem value, TimeSpan absoluteExpirationRelativeToNow)
+   at OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService.GetAuthTokenAsync(CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Services\UpstreamService.cs:line 57
+[2025-09-01 22:32:11.187 +08:00 WRN] Microsoft.AspNetCore.Server.Kestrel One or more of the following response headers have been removed because they are invalid for HTTP/2 and HTTP/3 responses: 'Connection', 'Transfer-Encoding', 'Keep-Alive', 'Upgrade' and 'Proxy-Connection'. {"EventId":{"Id":41,"Name":"InvalidResponseHeaderRemoved"},"RequestId":"0HNF9CH9HMDF4:00000001","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:32:52.247 +08:00 ERR] OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor 消费者任务失败 [RequestId: 6c42470d] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.IO.Pipelines.Pipe.GetReadAsyncResult()
+   at OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor.ConsumeAsync(PipeReader reader, Func`2 writeChunkAsync, String requestId, CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Infrastructure\Streaming\HighPerformanceStreamProcessor.cs:line 139
+[2025-09-01 22:32:52.314 +08:00 ERR] OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor 生产者任务失败 [RequestId: 6c42470d] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+ ---> System.IO.IOException: Unable to read data from the transport connection: 由于线程退出或应用程序请求，已中止 I/O 操作。.
+ ---> System.Net.Sockets.SocketException (995): 由于线程退出或应用程序请求，已中止 I/O 操作。
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.RawConnectionStream.ReadAsync(Memory`1 buffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.FillAsync(Boolean async)
+   at System.Net.Http.HttpConnection.ChunkedEncodingReadStream.ReadAsyncCore(Memory`1 buffer, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.ChunkedEncodingReadStream.ReadAsyncCore(Memory`1 buffer, CancellationToken cancellationToken)
+   at OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor.ProduceAsync(Stream source, PipeWriter writer, String requestId, CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Infrastructure\Streaming\HighPerformanceStreamProcessor.cs:line 96
+[2025-09-01 22:32:52.695 +08:00 ERR] OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Handlers.ApiEndpointHandler 聊天完成API处理失败 [RequestId: 6c42470d] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.IO.Pipelines.Pipe.GetReadAsyncResult()
+   at OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor.ConsumeAsync(PipeReader reader, Func`2 writeChunkAsync, String requestId, CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Infrastructure\Streaming\HighPerformanceStreamProcessor.cs:line 139
+   at OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor.ConsumeAsync(PipeReader reader, Func`2 writeChunkAsync, String requestId, CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Infrastructure\Streaming\HighPerformanceStreamProcessor.cs:line 163
+   at OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor.ProcessStreamAsync(Stream responseStream, Func`2 writeChunkAsync, String requestId, CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Infrastructure\Streaming\HighPerformanceStreamProcessor.cs:line 76
+   at OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Handlers.ApiEndpointHandler.HandleStreamResponseAsync(HttpContext context, ProcessChatResponse response, String requestId) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Infrastructure\Handlers\ApiEndpointHandler.cs:line 116
+   at OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Handlers.ApiEndpointHandler.HandleChatCompletionAsync(HttpContext context, String requestId) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Infrastructure\Handlers\ApiEndpointHandler.cs:line 65
+   at OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.EndpointExtensions.<>c.<<ConfigureApiEndpoints>b__0_1>d.MoveNext() in D:\Demo\csharp-api-proxy\csharp-api-proxy\Infrastructure\Extensions\EndpointExtensions.cs:line 57
+[2025-09-01 22:32:52.908 +08:00 ERR] OpenAI_Compatible_API_Proxy_for_Z.Middleware.GlobalExceptionMiddleware 发生未处理的异常: StatusCode cannot be set because the response has already started. {"RequestId":"0HNF9CH9HMDF4:00000001","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.EndpointExtensions.<>c.<<ConfigureApiEndpoints>b__0_1>d.MoveNext() in D:\Demo\csharp-api-proxy\csharp-api-proxy\Infrastructure\Extensions\EndpointExtensions.cs:line 62
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at OpenAI_Compatible_API_Proxy_for_Z.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Middleware\GlobalExceptionMiddleware.cs:line 21
+[2025-09-01 22:32:53.177 +08:00 ERR] OpenAI_Compatible_API_Proxy_for_Z.Middleware.PerformanceMonitoringMiddleware 请求处理异常 [RequestId: 0HNF9CH9HMDF4:00000001] [Duration: 47313.8472ms] [Error: Headers are read-only, response has already started.] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_ContentType(StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at OpenAI_Compatible_API_Proxy_for_Z.Middleware.GlobalExceptionMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Middleware\GlobalExceptionMiddleware.cs:line 32
+   at OpenAI_Compatible_API_Proxy_for_Z.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Middleware\GlobalExceptionMiddleware.cs:line 26
+   at OpenAI_Compatible_API_Proxy_for_Z.Middleware.PerformanceMonitoringMiddleware.InvokeAsync(HttpContext context) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Middleware\PerformanceMonitoringMiddleware.cs:line 46
+[2025-09-01 22:32:53.256 +08:00 ERR] Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"RequestId":"0HNF9CH9HMDF4:00000001","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_ContentType(StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at OpenAI_Compatible_API_Proxy_for_Z.Middleware.GlobalExceptionMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Middleware\GlobalExceptionMiddleware.cs:line 32
+   at OpenAI_Compatible_API_Proxy_for_Z.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Middleware\GlobalExceptionMiddleware.cs:line 26
+   at OpenAI_Compatible_API_Proxy_for_Z.Middleware.PerformanceMonitoringMiddleware.InvokeAsync(HttpContext context) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Middleware\PerformanceMonitoringMiddleware.cs:line 46
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2025-09-01 22:32:53.269 +08:00 WRN] Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware The response has already started, the error page middleware will not be executed. {"EventId":{"Id":2,"Name":"ResponseStarted"},"RequestId":"0HNF9CH9HMDF4:00000001","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:32:53.294 +08:00 ERR] Microsoft.AspNetCore.Server.Kestrel Connection id "0HNF9CH9HMDF4", Request id "0HNF9CH9HMDF4:00000001": An unhandled exception was thrown by the application. {"EventId":{"Id":13,"Name":"ApplicationError"},"RequestId":"0HNF9CH9HMDF4:00000001","RequestPath":"/v1/chat/completions","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_ContentType(StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at OpenAI_Compatible_API_Proxy_for_Z.Middleware.GlobalExceptionMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Middleware\GlobalExceptionMiddleware.cs:line 32
+   at OpenAI_Compatible_API_Proxy_for_Z.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Middleware\GlobalExceptionMiddleware.cs:line 26
+   at OpenAI_Compatible_API_Proxy_for_Z.Middleware.PerformanceMonitoringMiddleware.InvokeAsync(HttpContext context) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Middleware\PerformanceMonitoringMiddleware.cs:line 46
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+[2025-09-01 22:33:07.968 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Application.Handlers.ProcessChatCommandHandler 创建聊天会话 [RequestId: f5467803] [SessionId: 1756737187968-1756737187] [Features: Thinking=true, Search=true] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:33:07.977 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService 获取新的匿名令牌 {"RequestId":"0HNF9CH9HMDF4:00000003","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:33:11.005 +08:00 WRN] OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService 获取匿名令牌失败，使用默认令牌 {"RequestId":"0HNF9CH9HMDF4:00000003","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+System.InvalidOperationException: Cache entry must specify a value for Size when SizeLimit is set.
+   at Microsoft.Extensions.Caching.Memory.MemoryCache.SetEntry(CacheEntry entry)
+   at Microsoft.Extensions.Caching.Memory.CacheExtensions.Set[TItem](IMemoryCache cache, Object key, TItem value, TimeSpan absoluteExpirationRelativeToNow)
+   at OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService.GetAuthTokenAsync(CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Services\UpstreamService.cs:line 57
+[2025-09-01 22:33:13.126 +08:00 WRN] Microsoft.AspNetCore.Server.Kestrel One or more of the following response headers have been removed because they are invalid for HTTP/2 and HTTP/3 responses: 'Connection', 'Transfer-Encoding', 'Keep-Alive', 'Upgrade' and 'Proxy-Connection'. {"EventId":{"Id":41,"Name":"InvalidResponseHeaderRemoved"},"RequestId":"0HNF9CH9HMDF4:00000003","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:34:00.013 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor 流处理完成 [RequestId: f5467803] [Chunks: 620] [Bytes: 70766] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:34:00.020 +08:00 WRN] OpenAI_Compatible_API_Proxy_for_Z.Middleware.PerformanceMonitoringMiddleware 慢请求警告 [RequestId: 0HNF9CH9HMDF4:00000003] [Duration: 52059.6508ms] [Status: 200] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:34:00.028 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Middleware.PerformanceMonitoringMiddleware [PERF] ChatCompletion 耗时: 52059.6508ms, 详情: { IsStream = True, StatusCode = 200, ContentLength =  } {"RequestId":"0HNF9CH9HMDF4:00000003","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:34:21.376 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Application.Handlers.ProcessChatCommandHandler 创建聊天会话 [RequestId: 0543d0af] [SessionId: 1756737261376-1756737261] [Features: Thinking=true, Search=true] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:34:21.384 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService 获取新的匿名令牌 {"RequestId":"0HNF9CH9HMDF4:00000005","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:34:23.282 +08:00 WRN] OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService 获取匿名令牌失败，使用默认令牌 {"RequestId":"0HNF9CH9HMDF4:00000005","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+System.InvalidOperationException: Cache entry must specify a value for Size when SizeLimit is set.
+   at Microsoft.Extensions.Caching.Memory.MemoryCache.SetEntry(CacheEntry entry)
+   at Microsoft.Extensions.Caching.Memory.CacheExtensions.Set[TItem](IMemoryCache cache, Object key, TItem value, TimeSpan absoluteExpirationRelativeToNow)
+   at OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService.GetAuthTokenAsync(CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Services\UpstreamService.cs:line 57
+[2025-09-01 22:34:25.466 +08:00 WRN] Microsoft.AspNetCore.Server.Kestrel One or more of the following response headers have been removed because they are invalid for HTTP/2 and HTTP/3 responses: 'Connection', 'Transfer-Encoding', 'Keep-Alive', 'Upgrade' and 'Proxy-Connection'. {"EventId":{"Id":41,"Name":"InvalidResponseHeaderRemoved"},"RequestId":"0HNF9CH9HMDF4:00000005","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:37:56.042 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor 流处理完成 [RequestId: 0543d0af] [Chunks: 1690] [Bytes: 180929] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:37:56.050 +08:00 WRN] OpenAI_Compatible_API_Proxy_for_Z.Middleware.PerformanceMonitoringMiddleware 慢请求警告 [RequestId: 0HNF9CH9HMDF4:00000005] [Duration: 214677.4224ms] [Status: 200] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:37:56.058 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Middleware.PerformanceMonitoringMiddleware [PERF] ChatCompletion 耗时: 214677.4224ms, 详情: { IsStream = True, StatusCode = 200, ContentLength =  } {"RequestId":"0HNF9CH9HMDF4:00000005","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:38:38.025 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Application.Handlers.ProcessChatCommandHandler 创建聊天会话 [RequestId: bf656318] [SessionId: 1756737518025-1756737518] [Features: Thinking=true, Search=true] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:38:38.032 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService 获取新的匿名令牌 {"RequestId":"0HNF9CH9HMDF4:00000007","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:38:41.902 +08:00 WRN] OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService 获取匿名令牌失败，使用默认令牌 {"RequestId":"0HNF9CH9HMDF4:00000007","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+System.InvalidOperationException: Cache entry must specify a value for Size when SizeLimit is set.
+   at Microsoft.Extensions.Caching.Memory.MemoryCache.SetEntry(CacheEntry entry)
+   at Microsoft.Extensions.Caching.Memory.CacheExtensions.Set[TItem](IMemoryCache cache, Object key, TItem value, TimeSpan absoluteExpirationRelativeToNow)
+   at OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService.GetAuthTokenAsync(CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Services\UpstreamService.cs:line 57
+[2025-09-01 22:38:45.898 +08:00 WRN] Microsoft.AspNetCore.Server.Kestrel One or more of the following response headers have been removed because they are invalid for HTTP/2 and HTTP/3 responses: 'Connection', 'Transfer-Encoding', 'Keep-Alive', 'Upgrade' and 'Proxy-Connection'. {"EventId":{"Id":41,"Name":"InvalidResponseHeaderRemoved"},"RequestId":"0HNF9CH9HMDF4:00000007","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CH9HMDF4","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}

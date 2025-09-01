@@ -1,39 +1,97 @@
 [
   {
-    "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_6",
+    "ContainingType": "OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.EndpointExtensions\u002B\u003C\u003Ec",
+    "Method": "\u003CConfigureApiEndpoints\u003Eb__0_1",
     "RelativePath": "v1/chat/completions",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "OpenAIRequest",
+        "Type": "OpenAI_Compatible_API_Proxy_for_Z.OpenAIRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
+      {
+        "Type": "OpenAI_Compatible_API_Proxy_for_Z.OpenAIResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
       {
         "Type": "System.Void",
         "MediaTypes": [],
-        "StatusCode": 200
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
       }
-    ]
+    ],
+    "Tags": [
+      "Chat"
+    ],
+    "EndpointName": "ChatCompletions",
+    "Description": "\u4F7F\u7528\u6307\u5B9A\u6A21\u578B\u521B\u5EFA\u804A\u5929\u5B8C\u6210\uFF0C\u652F\u6301\u6D41\u5F0F\u548C\u975E\u6D41\u5F0F\u54CD\u5E94",
+    "Summary": "\u521B\u5EFA\u804A\u5929\u5B8C\u6210"
   },
   {
-    "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_6",
+    "ContainingType": "OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.EndpointExtensions\u002B\u003C\u003Ec",
+    "Method": "\u003CConfigureApiEndpoints\u003Eb__0_1",
     "RelativePath": "v1/chat/completions",
     "HttpMethod": "OPTIONS",
     "IsController": false,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "OpenAIRequest",
+        "Type": "OpenAI_Compatible_API_Proxy_for_Z.OpenAIRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
+      {
+        "Type": "OpenAI_Compatible_API_Proxy_for_Z.OpenAIResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
       {
         "Type": "System.Void",
         "MediaTypes": [],
-        "StatusCode": 200
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
       }
-    ]
+    ],
+    "Tags": [
+      "Chat"
+    ],
+    "EndpointName": "ChatCompletions",
+    "Description": "\u4F7F\u7528\u6307\u5B9A\u6A21\u578B\u521B\u5EFA\u804A\u5929\u5B8C\u6210\uFF0C\u652F\u6301\u6D41\u5F0F\u548C\u975E\u6D41\u5F0F\u54CD\u5E94",
+    "Summary": "\u521B\u5EFA\u804A\u5929\u5B8C\u6210"
   },
   {
-    "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_5",
+    "ContainingType": "OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.EndpointExtensions\u002B\u003C\u003Ec",
+    "Method": "\u003CConfigureApiEndpoints\u003Eb__0_0",
     "RelativePath": "v1/models",
     "HttpMethod": "GET",
     "IsController": false,
@@ -41,10 +99,23 @@
     "Parameters": [],
     "ReturnTypes": [
       {
+        "Type": "OpenAI_Compatible_API_Proxy_for_Z.ModelsResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
-        "StatusCode": 200
+        "StatusCode": 500
       }
-    ]
+    ],
+    "Tags": [
+      "Models"
+    ],
+    "EndpointName": "GetModels",
+    "Description": "\u8FD4\u56DE\u6240\u6709\u53EF\u7528\u7684AI\u6A21\u578B\u5217\u8868\uFF0C\u5305\u62EC\u52A8\u6001\u6A21\u578B",
+    "Summary": "\u83B7\u53D6\u53EF\u7528\u6A21\u578B\u5217\u8868"
   }
 ]

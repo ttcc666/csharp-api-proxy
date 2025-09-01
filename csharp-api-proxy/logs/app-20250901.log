@@ -1,0 +1,101 @@
+2025-09-01 22:06:11.235 +08:00 [FTL] 应用程序启动失败
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: OpenAI_Compatible_API_Proxy_for_Z.ChatHandler Lifetime: Scoped ImplementationType: OpenAI_Compatible_API_Proxy_for_Z.ChatHandler': Unable to resolve service for type 'OpenAI_Compatible_API_Proxy_for_Z.Services.IIntentAnalyzer' while attempting to activate 'OpenAI_Compatible_API_Proxy_for_Z.ChatHandler'.) (Error while validating the service descriptor 'ServiceType: OpenAI_Compatible_API_Proxy_for_Z.EnhancedChatHandler Lifetime: Scoped ImplementationType: OpenAI_Compatible_API_Proxy_for_Z.EnhancedChatHandler': Unable to resolve service for type 'OpenAI_Compatible_API_Proxy_for_Z.Services.IIntentAnalyzer' while attempting to activate 'OpenAI_Compatible_API_Proxy_for_Z.EnhancedChatHandler'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: OpenAI_Compatible_API_Proxy_for_Z.ChatHandler Lifetime: Scoped ImplementationType: OpenAI_Compatible_API_Proxy_for_Z.ChatHandler': Unable to resolve service for type 'OpenAI_Compatible_API_Proxy_for_Z.Services.IIntentAnalyzer' while attempting to activate 'OpenAI_Compatible_API_Proxy_for_Z.ChatHandler'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'OpenAI_Compatible_API_Proxy_for_Z.Services.IIntentAnalyzer' while attempting to activate 'OpenAI_Compatible_API_Proxy_for_Z.ChatHandler'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Program.cs:line 30
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: OpenAI_Compatible_API_Proxy_for_Z.EnhancedChatHandler Lifetime: Scoped ImplementationType: OpenAI_Compatible_API_Proxy_for_Z.EnhancedChatHandler': Unable to resolve service for type 'OpenAI_Compatible_API_Proxy_for_Z.Services.IIntentAnalyzer' while attempting to activate 'OpenAI_Compatible_API_Proxy_for_Z.EnhancedChatHandler'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'OpenAI_Compatible_API_Proxy_for_Z.Services.IIntentAnalyzer' while attempting to activate 'OpenAI_Compatible_API_Proxy_for_Z.EnhancedChatHandler'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)<---
+
+2025-09-01 22:08:24.588 +08:00 [INF] 应用程序启动完成，正在监听请求...
+2025-09-01 22:08:24.697 +08:00 [INF] Now listening on: http://localhost:5289
+2025-09-01 22:08:24.703 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-01 22:08:24.705 +08:00 [INF] Hosting environment: Development
+2025-09-01 22:08:24.706 +08:00 [INF] Content root path: D:\Demo\csharp-api-proxy\csharp-api-proxy
+2025-09-01 22:08:59.332 +08:00 [INF] Application is shutting down...
+2025-09-01 22:09:27.635 +08:00 [INF] 应用程序启动完成，正在监听请求...
+2025-09-01 22:09:27.951 +08:00 [INF] Now listening on: https://localhost:7106
+2025-09-01 22:09:27.957 +08:00 [INF] Now listening on: http://localhost:5289
+2025-09-01 22:09:27.966 +08:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-09-01 22:09:28.045 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-01 22:09:28.047 +08:00 [INF] Hosting environment: Development
+2025-09-01 22:09:28.049 +08:00 [INF] Content root path: D:\Demo\csharp-api-proxy\csharp-api-proxy
+2025-09-01 22:09:36.826 +08:00 [INF] Request starting HTTP/2 POST https://localhost:7106/v1/chat/completions - application/json 3106
+2025-09-01 22:09:36.923 +08:00 [INF] Executing endpoint 'HTTP: POST, OPTIONS /v1/chat/completions'
+2025-09-01 22:09:36.980 +08:00 [INF] 创建聊天会话 [RequestId: 5853a2e3] [SessionId: 1756735776979-1756735776] [Features: Thinking=true, Search=false]
+2025-09-01 22:09:36.999 +08:00 [INF] 获取新的匿名令牌
+2025-09-01 22:09:37.013 +08:00 [INF] Start processing HTTP request GET https://chat.z.ai/api/v1/auths/
+2025-09-01 22:09:37.023 +08:00 [INF] Sending HTTP request GET https://chat.z.ai/api/v1/auths/
+2025-09-01 22:09:39.168 +08:00 [INF] Received HTTP response headers after 2137.3635ms - 200
+2025-09-01 22:09:39.178 +08:00 [INF] End processing HTTP request after 2167.6784ms - 200
+2025-09-01 22:09:39.919 +08:00 [WRN] 获取匿名令牌失败，使用默认令牌
+System.InvalidOperationException: Cache entry must specify a value for Size when SizeLimit is set.
+   at Microsoft.Extensions.Caching.Memory.MemoryCache.SetEntry(CacheEntry entry)
+   at Microsoft.Extensions.Caching.Memory.CacheExtensions.Set[TItem](IMemoryCache cache, Object key, TItem value, TimeSpan absoluteExpirationRelativeToNow)
+   at OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService.GetAuthTokenAsync(CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Services\UpstreamService.cs:line 57
+2025-09-01 22:09:39.942 +08:00 [INF] Start processing HTTP request POST https://chat.z.ai/api/chat/completions
+2025-09-01 22:09:39.947 +08:00 [INF] Sending HTTP request POST https://chat.z.ai/api/chat/completions
+2025-09-01 22:09:41.293 +08:00 [INF] Received HTTP response headers after 1340.4461ms - 200
+2025-09-01 22:09:41.301 +08:00 [INF] End processing HTTP request after 1359.374ms - 200
+2025-09-01 22:09:41.318 +08:00 [WRN] One or more of the following response headers have been removed because they are invalid for HTTP/2 and HTTP/3 responses: 'Connection', 'Transfer-Encoding', 'Keep-Alive', 'Upgrade' and 'Proxy-Connection'.
+2025-09-01 22:10:16.355 +08:00 [INF] 流处理完成 [RequestId: 5853a2e3] [Chunks: 209] [Bytes: 26628]
+2025-09-01 22:10:16.360 +08:00 [INF] Executed endpoint 'HTTP: POST, OPTIONS /v1/chat/completions'
+2025-09-01 22:10:16.366 +08:00 [WRN] 慢请求警告 [RequestId: 0HNF9C4NH1B6T:00000001] [Duration: 39499.2162ms] [Status: 200]
+2025-09-01 22:10:16.370 +08:00 [INF] [PERF] ChatCompletion 耗时: 39499.2162ms, 详情: { IsStream = True, StatusCode = 200, ContentLength =  }
+2025-09-01 22:10:16.378 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7106/v1/chat/completions - 200 null text/event-stream 39558.2023ms
+2025-09-01 22:10:22.156 +08:00 [INF] Request starting HTTP/2 POST https://localhost:7106/v1/chat/completions - application/json 3104
+2025-09-01 22:10:22.164 +08:00 [INF] Executing endpoint 'HTTP: POST, OPTIONS /v1/chat/completions'
+2025-09-01 22:10:22.171 +08:00 [INF] 创建聊天会话 [RequestId: 4e833b7c] [SessionId: 1756735822170-1756735822] [Features: Thinking=true, Search=true]
+2025-09-01 22:10:22.175 +08:00 [INF] 获取新的匿名令牌
+2025-09-01 22:10:22.178 +08:00 [INF] Start processing HTTP request GET https://chat.z.ai/api/v1/auths/
+2025-09-01 22:10:22.182 +08:00 [INF] Sending HTTP request GET https://chat.z.ai/api/v1/auths/
+2025-09-01 22:10:22.616 +08:00 [INF] Received HTTP response headers after 428.0212ms - 200
+2025-09-01 22:10:22.624 +08:00 [INF] End processing HTTP request after 445.5714ms - 200
+2025-09-01 22:10:22.689 +08:00 [WRN] 获取匿名令牌失败，使用默认令牌
+System.InvalidOperationException: Cache entry must specify a value for Size when SizeLimit is set.
+   at Microsoft.Extensions.Caching.Memory.MemoryCache.SetEntry(CacheEntry entry)
+   at Microsoft.Extensions.Caching.Memory.CacheExtensions.Set[TItem](IMemoryCache cache, Object key, TItem value, TimeSpan absoluteExpirationRelativeToNow)
+   at OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService.GetAuthTokenAsync(CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Services\UpstreamService.cs:line 57
+2025-09-01 22:10:22.695 +08:00 [INF] Start processing HTTP request POST https://chat.z.ai/api/chat/completions
+2025-09-01 22:10:22.701 +08:00 [INF] Sending HTTP request POST https://chat.z.ai/api/chat/completions
+2025-09-01 22:10:27.730 +08:00 [INF] Received HTTP response headers after 5025.1512ms - 200
+2025-09-01 22:10:27.737 +08:00 [INF] End processing HTTP request after 5042.1498ms - 200
+2025-09-01 22:10:27.754 +08:00 [WRN] One or more of the following response headers have been removed because they are invalid for HTTP/2 and HTTP/3 responses: 'Connection', 'Transfer-Encoding', 'Keep-Alive', 'Upgrade' and 'Proxy-Connection'.
+2025-09-01 22:11:29.872 +08:00 [INF] 流处理完成 [RequestId: 4e833b7c] [Chunks: 71] [Bytes: 32407]
+2025-09-01 22:11:29.878 +08:00 [INF] Executed endpoint 'HTTP: POST, OPTIONS /v1/chat/completions'
+2025-09-01 22:11:29.883 +08:00 [WRN] 慢请求警告 [RequestId: 0HNF9C4NH1B6T:00000003] [Duration: 67719.4326ms] [Status: 200]
+2025-09-01 22:11:29.886 +08:00 [INF] [PERF] ChatCompletion 耗时: 67719.4326ms, 详情: { IsStream = True, StatusCode = 200, ContentLength =  }
+2025-09-01 22:11:29.890 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7106/v1/chat/completions - 200 null text/event-stream 67734.4306ms
+[2025-09-01 22:18:44.486 +08:00 INF]  应用程序启动完成，正在监听请求... {"Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:19:04.921 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Services.IntentAnalysisService 检测到搜索需求 [Content: 帮我根据今天上海的天气生成一个天气卡片 上海的天气] [Score: 2] {"RequestId":"0HNF9CA0PFCVB:00000001","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CA0PFCVB","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:19:04.936 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Application.Handlers.ProcessChatCommandHandler 创建聊天会话 [RequestId: dc28a515] [SessionId: 1756736344902-1756736344] [Features: Thinking=true, Search=true] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CA0PFCVB","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:19:04.956 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService 获取新的匿名令牌 {"RequestId":"0HNF9CA0PFCVB:00000001","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CA0PFCVB","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:19:07.756 +08:00 WRN] OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService 获取匿名令牌失败，使用默认令牌 {"RequestId":"0HNF9CA0PFCVB:00000001","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CA0PFCVB","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+System.InvalidOperationException: Cache entry must specify a value for Size when SizeLimit is set.
+   at Microsoft.Extensions.Caching.Memory.MemoryCache.SetEntry(CacheEntry entry)
+   at Microsoft.Extensions.Caching.Memory.CacheExtensions.Set[TItem](IMemoryCache cache, Object key, TItem value, TimeSpan absoluteExpirationRelativeToNow)
+   at OpenAI_Compatible_API_Proxy_for_Z.Services.UpstreamService.GetAuthTokenAsync(CancellationToken cancellationToken) in D:\Demo\csharp-api-proxy\csharp-api-proxy\Services\UpstreamService.cs:line 57
+[2025-09-01 22:19:27.387 +08:00 WRN] Microsoft.AspNetCore.Server.Kestrel One or more of the following response headers have been removed because they are invalid for HTTP/2 and HTTP/3 responses: 'Connection', 'Transfer-Encoding', 'Keep-Alive', 'Upgrade' and 'Proxy-Connection'. {"EventId":{"Id":41,"Name":"InvalidResponseHeaderRemoved"},"RequestId":"0HNF9CA0PFCVB:00000001","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CA0PFCVB","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:20:02.233 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor 流处理完成 [RequestId: dc28a515] [Chunks: 284] [Bytes: 59203] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CA0PFCVB","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:20:02.244 +08:00 WRN] OpenAI_Compatible_API_Proxy_for_Z.Middleware.PerformanceMonitoringMiddleware 慢请求警告 [RequestId: 0HNF9CA0PFCVB:00000001] [Duration: 57450.6693ms] [Status: 200] {"RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CA0PFCVB","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}
+[2025-09-01 22:20:02.256 +08:00 INF] OpenAI_Compatible_API_Proxy_for_Z.Middleware.PerformanceMonitoringMiddleware [PERF] ChatCompletion 耗时: 57450.6693ms, 详情: { IsStream = True, StatusCode = 200, ContentLength =  } {"RequestId":"0HNF9CA0PFCVB:00000001","RequestPath":"/v1/chat/completions","ConnectionId":"0HNF9CA0PFCVB","Application":"OpenAI Compatible API Proxy for Z.AI v2.0"}

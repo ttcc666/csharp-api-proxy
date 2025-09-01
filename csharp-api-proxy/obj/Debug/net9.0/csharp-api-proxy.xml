@@ -1,0 +1,671 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>csharp-api-proxy</name>
+    </assembly>
+    <members>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatCommand">
+            <summary>
+            处理聊天请求命令
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatCommand.RequestId">
+            <summary>
+            请求ID（用于追踪）
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatCommand.Model">
+            <summary>
+            模型名称
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatCommand.Messages">
+            <summary>
+            消息列表
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatCommand.Stream">
+            <summary>
+            是否流式响应
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatCommand.Temperature">
+            <summary>
+            温度参数
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatCommand.MaxTokens">
+            <summary>
+            最大令牌数
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatCommand.ApiKey">
+            <summary>
+            API密钥
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatCommand.CancellationToken">
+            <summary>
+            取消令牌
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatResponse">
+            <summary>
+            处理聊天请求响应
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatResponse.SessionId">
+            <summary>
+            会话ID
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatResponse.UpstreamRequest">
+            <summary>
+            上游请求对象
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatResponse.AuthToken">
+            <summary>
+            认证令牌
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatResponse.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Commands.ProcessChatResponse.ErrorMessage">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Application.Handlers.GetModelsQueryHandler">
+            <summary>
+            获取模型列表查询处理器
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Application.Handlers.ProcessChatCommandHandler">
+            <summary>
+            处理聊天请求命令处理器
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Application.Queries.GetModelsQuery">
+            <summary>
+            获取可用模型列表查询
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Queries.GetModelsQuery.IncludeDynamicModels">
+            <summary>
+            是否包含动态模型
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Queries.GetModelsQuery.CancellationToken">
+            <summary>
+            取消令牌
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Application.Queries.GetModelsResponse">
+            <summary>
+            获取模型列表响应
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Queries.GetModelsResponse.Models">
+            <summary>
+            模型列表
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Queries.GetModelsResponse.FromCache">
+            <summary>
+            是否来自缓存
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Application.Queries.GetModelsResponse.HasFallback">
+            <summary>
+            是否有回退模型
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings">
+            <summary>
+            意图分析配置设置
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.EnableSmartDispatch">
+            <summary>
+            是否启用智能调度
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.UseAdvancedAnalyzer">
+            <summary>
+            是否启用高级分析器
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.SearchThreshold">
+            <summary>
+            搜索意图阈值
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.ThinkingThreshold">
+            <summary>
+            思考意图阈值
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.CombinedThreshold">
+            <summary>
+            组合意图阈值
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.CacheTimeoutMinutes">
+            <summary>
+            分析结果缓存时间（分钟）
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.ContextDepth">
+            <summary>
+            上下文分析深度（考虑前几条消息）
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.CustomSearchKeywords">
+            <summary>
+            自定义搜索关键词（将与默认关键词合并）
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.CustomThinkingKeywords">
+            <summary>
+            自定义思考关键词（将与默认关键词合并）
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.DisabledKeywords">
+            <summary>
+            禁用的关键词（不参与分析）
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.ForceSearchPatterns">
+            <summary>
+            强制搜索的内容模式（正则表达式）
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.ForceThinkingPatterns">
+            <summary>
+            强制思考的内容模式（正则表达式）
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.IntentAnalysisSettings.DebugMode">
+            <summary>
+            调试模式 - 输出详细分析信息
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Configuration.ToolSettings">
+            <summary>
+            工具配置设置
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.ToolSettings.DefaultEnabledTools">
+            <summary>
+            默认启用的工具
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.ToolSettings.ToolWeights">
+            <summary>
+            工具权重配置
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.ToolSettings.Search">
+            <summary>
+            搜索工具特定配置
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.ToolSettings.Thinking">
+            <summary>
+            思考工具特定配置
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Configuration.SearchToolSettings">
+            <summary>
+            搜索工具配置
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.SearchToolSettings.DefaultSearchDepth">
+            <summary>
+            默认搜索深度
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.SearchToolSettings.AutoSearchWeight">
+            <summary>
+            自动搜索关键词权重
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.SearchToolSettings.TimeSensitivityWeight">
+            <summary>
+            时间敏感性权重
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Configuration.ThinkingToolSettings">
+            <summary>
+            思考工具配置
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.ThinkingToolSettings.DefaultThinkingDepth">
+            <summary>
+            默认思考深度
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.ThinkingToolSettings.ComplexityThreshold">
+            <summary>
+            复杂性检测阈值
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Configuration.ThinkingToolSettings.AnalysisWeight">
+            <summary>
+            分析权重
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Domain.Entities.ChatSession">
+            <summary>
+            聊天会话实体
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Domain.Entities.ChatSession.Id">
+            <summary>
+            会话ID
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Domain.Entities.ChatSession.MessageId">
+            <summary>
+            消息ID
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Domain.Entities.ChatSession.Model">
+            <summary>
+            模型名称
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Domain.Entities.ChatSession.Messages">
+            <summary>
+            消息列表
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Domain.Entities.ChatSession.Features">
+            <summary>
+            功能配置
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Domain.Entities.ChatSession.CreatedAt">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Domain.Entities.ChatSession.IsStreaming">
+            <summary>
+            是否为流式请求
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Domain.Services.IIntentAnalysisService">
+            <summary>
+            意图分析领域服务接口
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Domain.Services.IIntentAnalysisService.AnalyzeIntent(System.Collections.Generic.IReadOnlyList{OpenAI_Compatible_API_Proxy_for_Z.Message},System.String)">
+            <summary>
+            分析用户意图并确定所需功能
+            </summary>
+            <param name="messages">消息列表</param>
+            <param name="model">模型名称</param>
+            <returns>聊天功能配置</returns>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Domain.Services.IIntentAnalysisService.AnalyzeSingleMessage(System.String)">
+            <summary>
+            分析单条消息的意图
+            </summary>
+            <param name="content">消息内容</param>
+            <returns>意图分析结果</returns>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Domain.ValueObjects.ChatFeatures">
+            <summary>
+            聊天功能配置值对象
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Domain.ValueObjects.ChatFeatures.EnableThinking">
+            <summary>
+            是否启用思考功能
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Domain.ValueObjects.ChatFeatures.EnableWebSearch">
+            <summary>
+            是否启用网络搜索
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Domain.ValueObjects.ChatFeatures.EnableAutoWebSearch">
+            <summary>
+            是否启用自动网络搜索
+            </summary>
+        </member>
+        <member name="P:OpenAI_Compatible_API_Proxy_for_Z.Domain.ValueObjects.ChatFeatures.McpServers">
+            <summary>
+            MCP服务器列表
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Domain.ValueObjects.ChatFeatures.Basic">
+            <summary>
+            创建基本功能配置
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Domain.ValueObjects.ChatFeatures.WithThinking">
+            <summary>
+            创建思考功能配置
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Domain.ValueObjects.ChatFeatures.WithSearch(System.String)">
+            <summary>
+            创建搜索功能配置
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Domain.ValueObjects.ChatFeatures.ToFeaturesDictionary">
+            <summary>
+            转换为字典格式（用于上游API）
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.EndpointExtensions">
+            <summary>
+            API 端点配置扩展
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.EndpointExtensions.ConfigureApiEndpoints(Microsoft.AspNetCore.Builder.WebApplication)">
+            <summary>
+            配置API端点
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.ServiceCollectionExtensions">
+            <summary>
+            服务集合扩展方法
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.ServiceCollectionExtensions.AddApplicationCore(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            添加应用程序核心服务
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.ServiceCollectionExtensions.AddConfigurationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            添加配置服务
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.ServiceCollectionExtensions.AddHttpClientServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            添加HTTP客户端服务
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.ServiceCollectionExtensions.AddBusinessServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            添加业务服务
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.ServiceCollectionExtensions.AddPerformanceServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            添加性能优化服务
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.ServiceCollectionExtensions.AddObservabilityServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            添加监控和可观测性服务
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.ServiceCollectionExtensions.AddApiDocumentation(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            添加API文档服务
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions.ServiceCollectionExtensions.AddCorsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            添加CORS服务
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Handlers.ApiEndpointHandler">
+            <summary>
+            API 端点处理器
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Services.IntentAnalysisService">
+            <summary>
+            现代化意图分析服务实现（同时实现新旧接口以保证兼容性）
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor">
+            <summary>
+            高性能流处理器
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor.ProcessStreamAsync(System.IO.Stream,System.Func{System.String,System.Threading.Tasks.Task},System.String,System.Threading.CancellationToken)">
+            <summary>
+            处理流式响应（使用Pipeline进行高性能处理）
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor.ProduceAsync(System.IO.Stream,System.IO.Pipelines.PipeWriter,System.String,System.Threading.CancellationToken)">
+            <summary>
+            生产者：读取原始数据流并写入Pipeline
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor.ConsumeAsync(System.IO.Pipelines.PipeReader,System.Func{System.String,System.Threading.Tasks.Task},System.String,System.Threading.CancellationToken)">
+            <summary>
+            消费者：从Pipeline读取数据并处理
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor.ProcessBufferAsync(System.Buffers.ReadOnlySequence{System.Byte},System.Text.StringBuilder,System.Func{System.String,System.Threading.Tasks.Task},System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            处理缓冲区数据
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor.ProcessLineAsync(System.String,System.Func{System.String,System.Threading.Tasks.Task},System.String,System.Threading.CancellationToken)">
+            <summary>
+            处理单行数据
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor.HasError(OpenAI_Compatible_API_Proxy_for_Z.UpstreamData)">
+            <summary>
+            检查是否有错误
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.HighPerformanceStreamProcessor.LogPerformanceStats(System.String)">
+            <summary>
+            记录性能统计
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.ProcessedChunk">
+            <summary>
+            已处理的数据块
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Streaming.ProcessedChunk.#ctor(System.String,System.Boolean)">
+            <summary>
+            已处理的数据块
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Middleware.PerformanceMonitoringMiddleware">
+            <summary>
+            性能监控中间件 - 记录请求处理时间和性能指标
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Middleware.RequestLoggingMiddleware">
+            <summary>
+            专门的请求日志中间件 - 记录每个请求的详细信息
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.ModelNames">
+            <summary>
+            支持的模型名称常量
+            </summary>
+        </member>
+        <member name="F:OpenAI_Compatible_API_Proxy_for_Z.ModelNames.Default">
+            <summary>
+            默认模型 - 标准对话
+            </summary>
+        </member>
+        <member name="F:OpenAI_Compatible_API_Proxy_for_Z.ModelNames.Thinking">
+            <summary>
+            思考模型 - 启用思考模式
+            </summary>
+        </member>
+        <member name="F:OpenAI_Compatible_API_Proxy_for_Z.ModelNames.Search">
+            <summary>
+            搜索模型 - 启用思考模式和网络搜索
+            </summary>
+        </member>
+        <member name="F:OpenAI_Compatible_API_Proxy_for_Z.ModelNames.Auto">
+            <summary>
+            智能模式 - 根据用户输入自动决定功能
+            </summary>
+        </member>
+        <member name="F:OpenAI_Compatible_API_Proxy_for_Z.ModelNames.UpstreamModelId">
+            <summary>
+            上游实际使用的模型ID
+            </summary>
+        </member>
+        <member name="F:OpenAI_Compatible_API_Proxy_for_Z.ModelNames.SearchMcpServer">
+            <summary>
+            搜索功能使用的 MCP 服务器
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.ModelNames.IsValidModel(System.String)">
+            <summary>
+            检查是否为有效的模型名称
+            </summary>
+            <param name="modelName">模型名称</param>
+            <returns>是否为有效模型</returns>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.ModelNames.RequiresSmartDispatch(System.String)">
+            <summary>
+            检查模型是否需要智能调度
+            </summary>
+            <param name="modelName">模型名称</param>
+            <returns>是否需要智能调度</returns>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.ModelNames.RequiresThinking(System.String)">
+            <summary>
+            检查模型是否需要启用思考功能
+            </summary>
+            <param name="modelName">模型名称</param>
+            <returns>是否需要思考功能</returns>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.ModelNames.RequiresSearch(System.String)">
+            <summary>
+            检查模型是否需要启用搜索功能
+            </summary>
+            <param name="modelName">模型名称</param>
+            <returns>是否需要搜索功能</returns>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Services.DynamicModelService">
+            <summary>
+            动态模型服务实现 - 从上游API获取可用模型（基于Python版本逻辑）
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Services.DynamicModelService.FormatModelName(System.String,System.String)">
+            <summary>
+            格式化模型名称（基于Python版本的逻辑）
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Services.DynamicModelService.FormatModelId(System.String)">
+            <summary>
+            格式化模型ID（基于Python版本的规则）
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Services.DynamicModelService.IsEnglishLetter(System.Char)">
+            <summary>
+            判断是否是英文字母
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Services.DynamicModelService.GetFallbackModels">
+            <summary>
+            获取回退模型列表（当动态获取失败时使用）
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Services.DynamicModelInfo">
+            <summary>
+            动态模型信息
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Services.DynamicModelInfo.#ctor(System.String,System.String,System.String,System.Int64,System.String,System.Boolean)">
+            <summary>
+            动态模型信息
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Services.IDynamicModelService">
+            <summary>
+            动态模型服务接口 - 从上游API获取可用模型
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Services.IDynamicModelService.GetAvailableModelsAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取可用模型列表
+            </summary>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>模型列表</returns>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Services.IDynamicModelService.RefreshModelCacheAsync(System.Threading.CancellationToken)">
+            <summary>
+            刷新模型缓存
+            </summary>
+            <param name="cancellationToken">取消令牌</param>
+            <returns>任务</returns>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Services.IDynamicModelService.IsValidModelAsync(System.String)">
+            <summary>
+            检查模型是否有效
+            </summary>
+            <param name="modelId">模型ID</param>
+            <returns>是否有效</returns>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Services.UserIntent">
+            <summary>
+            用户意图类型
+            </summary>
+        </member>
+        <member name="F:OpenAI_Compatible_API_Proxy_for_Z.Services.UserIntent.Basic">
+            <summary>
+            基础对话
+            </summary>
+        </member>
+        <member name="F:OpenAI_Compatible_API_Proxy_for_Z.Services.UserIntent.Thinking">
+            <summary>
+            需要深度思考
+            </summary>
+        </member>
+        <member name="F:OpenAI_Compatible_API_Proxy_for_Z.Services.UserIntent.Search">
+            <summary>
+            需要搜索信息
+            </summary>
+        </member>
+        <member name="F:OpenAI_Compatible_API_Proxy_for_Z.Services.UserIntent.ThinkingWithSearch">
+            <summary>
+            需要思考+搜索
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Services.IntentAnalysisResult">
+            <summary>
+            意图分析结果
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Services.IntentAnalysisResult.#ctor(OpenAI_Compatible_API_Proxy_for_Z.Services.UserIntent,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            意图分析结果
+            </summary>
+        </member>
+        <member name="T:OpenAI_Compatible_API_Proxy_for_Z.Services.IIntentAnalyzer">
+            <summary>
+            用户意图分析器接口
+            </summary>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Services.IIntentAnalyzer.AnalyzeIntent(System.Collections.Generic.IList{OpenAI_Compatible_API_Proxy_for_Z.Message})">
+            <summary>
+            分析用户消息的意图
+            </summary>
+            <param name="messages">用户消息列表</param>
+            <returns>意图分析结果</returns>
+        </member>
+        <member name="M:OpenAI_Compatible_API_Proxy_for_Z.Services.IIntentAnalyzer.AnalyzeIntent(System.String)">
+            <summary>
+            分析单条消息的意图
+            </summary>
+            <param name="content">消息内容</param>
+            <returns>意图分析结果</returns>
+        </member>
+    </members>
+</doc>

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Demo\\2api\\OpenAI-Compatible-API-Proxy-for-Z\\csharp-api-proxy\\csharp-api-proxy.csproj": {}
+    "D:\\Demo\\csharp-api-proxy\\csharp-api-proxy\\csharp-api-proxy.csproj": {}
   },
   "projects": {
-    "D:\\Demo\\2api\\OpenAI-Compatible-API-Proxy-for-Z\\csharp-api-proxy\\csharp-api-proxy.csproj": {
+    "D:\\Demo\\csharp-api-proxy\\csharp-api-proxy\\csharp-api-proxy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Demo\\2api\\OpenAI-Compatible-API-Proxy-for-Z\\csharp-api-proxy\\csharp-api-proxy.csproj",
+        "projectUniqueName": "D:\\Demo\\csharp-api-proxy\\csharp-api-proxy\\csharp-api-proxy.csproj",
         "projectName": "csharp-api-proxy",
-        "projectPath": "D:\\Demo\\2api\\OpenAI-Compatible-API-Proxy-for-Z\\csharp-api-proxy\\csharp-api-proxy.csproj",
-        "packagesPath": "D:\\Nuget\\.nuget\\packages",
-        "outputPath": "D:\\Demo\\2api\\OpenAI-Compatible-API-Proxy-for-Z\\csharp-api-proxy\\obj\\",
+        "projectPath": "D:\\Demo\\csharp-api-proxy\\csharp-api-proxy\\csharp-api-proxy.csproj",
+        "packagesPath": "C:\\Users\\27860\\.nuget\\packages\\",
+        "outputPath": "D:\\Demo\\csharp-api-proxy\\csharp-api-proxy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\vs2022\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\KGMCW\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\27860\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,9 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.kgmsoft.cn:3001/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
@@ -37,6 +35,7 @@
           }
         },
         "warningProperties": {
+          "allWarningsAsErrors": true,
           "warnAsError": [
             "NU1605"
           ]
@@ -52,6 +51,26 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.11.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.11.0, )"
+            },
+            "LogDashboard": {
+              "target": "Package",
+              "version": "[1.4.8, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.HealthChecks": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -64,9 +83,65 @@
               "target": "Package",
               "version": "[9.0.7, )"
             },
+            "Microsoft.Extensions.Http.Polly": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "Microsoft.Extensions.ObjectPool": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.Extensions.Options.DataAnnotations": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[8.4.2, )"
+            },
+            "Polly.Extensions.Http": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Serilog.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[7.2.0, )"
+            },
+            "System.Diagnostics.DiagnosticSource": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.IO.Pipelines": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Threading.Channels": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
@@ -88,7 +163,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,140 +1,80 @@
-using Microsoft.Extensions.Options;
-using OpenAI_Compatible_API_Proxy_for_Z;
+using OpenAI_Compatible_API_Proxy_for_Z.Infrastructure.Extensions;
 using OpenAI_Compatible_API_Proxy_for_Z.Middleware;
-using OpenAI_Compatible_API_Proxy_for_Z.Services;
-using System.Text.Json;
+using Serilog;
+using LogDashboard;
 
-var builder = WebApplication.CreateBuilder(args);
+// 配置 Serilog 作为启动日志记录器
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateBootstrapLogger();
 
-// Add services to the container.
-builder.Services.Configure<ProxySettings>(builder.Configuration.GetSection("ProxySettings"));
-
-// Configure HttpClient with timeout and other settings
-builder.Services.AddHttpClient<IUpstreamService, UpstreamService>((serviceProvider, client) =>
+try
 {
-    var settings = serviceProvider.GetRequiredService<IOptions<ProxySettings>>().Value;
-    client.Timeout = TimeSpan.FromSeconds(settings.RequestTimeoutSeconds);
-    client.DefaultRequestHeaders.Add("Accept", "application/json");
-});
+    Log.Information("启动 OpenAI Compatible API Proxy for Z.AI v2.0");
 
-// Add memory cache for token caching
-builder.Services.AddMemoryCache();
+    var builder = WebApplication.CreateBuilder(args);
 
-// Register services
-builder.Services.AddScoped<ChatHandler>();
-builder.Services.AddScoped<IUpstreamService, UpstreamService>();
-builder.Services.AddScoped<IContentTransformer, ContentTransformer>();
-builder.Services.AddScoped<IOpenAIResponseBuilder, OpenAIResponseBuilder>();
+    // 添加 Serilog
+    builder.Host.UseSerilog();
 
-// Add health checks
-builder.Services.AddHealthChecks()
-    .AddCheck<OpenAI_Compatible_API_Proxy_for_Z.HealthChecks.UpstreamHealthCheck>("upstream");
+    // 模块化服务注册
+    builder.Services
+        .AddApplicationCore()                                    // MediatR + 验证
+        .AddConfigurationServices(builder.Configuration)        // 强类型配置
+        .AddHttpClientServices()                                // HTTP客户端 + 重试策略
+        .AddBusinessServices()                                  // 业务服务
+        .AddPerformanceServices()                               // 性能优化
+        .AddObservabilityServices(builder.Configuration)        // 监控和日志
+        .AddApiDocumentation(builder.Environment)               // API文档
+        .AddCorsServices();                                     // CORS配置
 
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(
-        policy =>
-        {
-            policy.AllowAnyOrigin()
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
-        });
-});
+    var app = builder.Build();
 
-// Configure JSON serialization
-builder.Services.ConfigureHttpJsonOptions(options =>
-{
-    options.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower;
-    options.SerializerOptions.WriteIndented = false;
-});
+    // 配置中间件管道
+    app.UseMiddleware<RequestLoggingMiddleware>();      // 详细请求日志
+    app.UseMiddleware<PerformanceMonitoringMiddleware>(); // 性能监控
+    app.UseMiddleware<GlobalExceptionMiddleware>();     // 全局异常处理
 
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddOpenApi();
-
-// 添加 Swagger 配置用于更好的API文档
-if (builder.Environment.IsDevelopment())
-{
-    builder.Services.AddSwaggerGen(c =>
+    // 开发环境配置
+    if (app.Environment.IsDevelopment())
     {
-        c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+        app.MapOpenApi();
+        app.UseSwagger();
+        app.UseSwaggerUI(c =>
         {
-            Title = "OpenAI Compatible API Proxy for Z.AI",
-            Version = "v1.0",
-            Description = "一个与 OpenAI API 兼容的代理服务，用于转发请求到 Z.AI 服务",
-            Contact = new Microsoft.OpenApi.Models.OpenApiContact
-            {
-                Name = "API 支持",
-                Email = "support@example.com"
-            }
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "OpenAI Compatible API Proxy v2.0");
+            c.RoutePrefix = "docs";
+            c.DisplayRequestDuration();
+            c.EnableDeepLinking();
         });
+        app.UseCors("Development");
+    }
+    else
+    {
+        app.UseCors("Production");
+    }
 
-        // 添加认证配置
-        c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
-        {
-            Description = "JWT Authorization header using the Bearer scheme",
-            Name = "Authorization",
-            In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-            Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
-            Scheme = "Bearer"
-        });
+    app.UseHttpsRedirection();
 
-        c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
-        {
-            {
-                new Microsoft.OpenApi.Models.OpenApiSecurityScheme
-                {
-                    Reference = new Microsoft.OpenApi.Models.OpenApiReference
-                    {
-                        Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
-                        Id = "Bearer"
-                    }
-                },
-                Array.Empty<string>()
-            }
-        });
-    });
+    // 健康检查端点
+    app.MapHealthChecks("/health").WithTags("Health");
+
+    // 配置 LogDashboard
+    app.UseLogDashboard();
+
+    // 配置API端点
+    app.ConfigureApiEndpoints();
+
+    Log.Information("应用程序启动完成，正在监听请求...");
+    await app.RunAsync();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "应用程序启动失败");
+    throw;
+}
+finally
+{
+    await Log.CloseAndFlushAsync();
 }
 
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-app.UseMiddleware<GlobalExceptionMiddleware>();
-
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "OpenAI Compatible API Proxy v1");
-        c.RoutePrefix = "docs";
-    });
-}
-
-app.UseCors();
-app.UseHttpsRedirection();
-
-// Add health check endpoint
-app.MapHealthChecks("/health");
-
-app.MapGet("/v1/models", (IOptions<ProxySettings> settings) =>
-{
-    var response = new ModelsResponse(
-        Object: "list",
-        Data: new List<ModelInfo>
-        {
-            new ModelInfo(
-                Id: settings.Value.ModelName,
-                Object: "model",
-                Created: DateTimeOffset.Now.ToUnixTimeSeconds(),
-                OwnedBy: "z.ai"
-            )
-        }
-    );
-    return Results.Ok(response);
-});
-
-app.MapMethods("/v1/chat/completions", new[] { "POST", "OPTIONS" }, async (HttpContext context, ChatHandler handler) => await handler.Handle(context));
-
-app.Run();

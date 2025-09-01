@@ -7,7 +7,8 @@ namespace OpenAI_Compatible_API_Proxy_for_Z;
 
 public record Message(
     [property: JsonPropertyName("role")] string Role,
-    [property: JsonPropertyName("content")] string Content
+    [property: JsonPropertyName("content")] string Content,
+    [property: JsonPropertyName("reasoning_content")] string? ReasoningContent = null
 );
 
 public record OpenAIRequest(
@@ -36,7 +37,8 @@ public record Choice(
 
 public record Delta(
     [property: JsonPropertyName("role")] string? Role,
-    [property: JsonPropertyName("content")] string? Content
+    [property: JsonPropertyName("content")] string? Content,
+    [property: JsonPropertyName("reasoning_content")] string? ReasoningContent = null
 );
 
 public record Usage(

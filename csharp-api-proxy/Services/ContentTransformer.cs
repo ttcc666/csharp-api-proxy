@@ -19,9 +19,16 @@ public class ContentTransformer : IContentTransformer
     {
         if (phase != "thinking") return content;
 
+        // 与Go版本完全一致的转换逻辑
         var transformed = Regex.Replace(content, "(?s)<summary>.*?</summary>", "");
-        transformed = transformed.Replace("</thinking>", "").Replace("<Full>", "").Replace("</Full>", "").Trim();
+        
+        // 清理残留自定义标签，如 </thinking>、<Full> 等（与Go版本一致）
+        transformed = transformed.Replace("</thinking>", "")
+                                .Replace("<Full>", "")
+                                .Replace("</Full>", "")
+                                .Trim();
 
+        // 标签处理策略（与Go版本一致）
         switch (_settings.ThinkTagsMode)
         {
             case "think":
@@ -37,11 +44,28 @@ public class ContentTransformer : IContentTransformer
                 break;
         }
 
-        if (transformed.StartsWith("> ")) 
+        // 处理每行前缀 "> "（包括起始位置）- 与Go版本一致
+        transformed = transformed.TrimStart();
+        if (transformed.StartsWith("> "))
+        {
             transformed = transformed.Substring(2);
+        }
         transformed = transformed.Replace("\n> ", "\n");
 
         return transformed.Trim();
+    }
+
+    public (string? content, string? reasoningContent) ProcessContent(string deltaContent, string phase)
+    {
+        if (phase == "thinking")
+        {
+            var transformedThinking = TransformThinking(deltaContent, phase);
+            return (null, string.IsNullOrEmpty(transformedThinking) ? null : transformedThinking);
+        }
+        else
+        {
+            return (string.IsNullOrEmpty(deltaContent) ? null : deltaContent, null);
+        }
     }
 
     public UpstreamData? DeserializeUpstreamData(string dataStr)
