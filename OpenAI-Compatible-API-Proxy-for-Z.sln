@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-api-proxy", "csharp-api-proxy\csharp-api-proxy.csproj", "{2980EA09-6C4B-9AB8-BA26-6F9AFB03D5C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2980EA09-6C4B-9AB8-BA26-6F9AFB03D5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2980EA09-6C4B-9AB8-BA26-6F9AFB03D5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2980EA09-6C4B-9AB8-BA26-6F9AFB03D5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2980EA09-6C4B-9AB8-BA26-6F9AFB03D5C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67F1E0E6-CD77-4FD6-9AA1-458634A6601D}
+	EndGlobalSection
+EndGlobal

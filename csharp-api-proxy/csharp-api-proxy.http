@@ -1,0 +1,6 @@
+@csharp_api_proxy_HostAddress = http://localhost:5289
+
+GET {{csharp_api_proxy_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
